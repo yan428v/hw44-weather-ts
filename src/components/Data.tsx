@@ -2,11 +2,11 @@ import {useState} from 'react';
 import Form from "./Form.tsx";
 import Weather from "./Weather.tsx";
 import {api_key, base_url} from "../utils/constants.tsx";
-import {WeatherInfoProps} from "../types/interfaces.ts";
+import {WeatherInfo} from "../types/interfaces.ts";
 
 
 const Data = () => {
-    const [weatherInfo, setWeatherInfo]= useState<WeatherInfoProps | null>(null);
+    const [weatherInfo, setWeatherInfo]= useState<WeatherInfo | null >(null);
 
     const getWeather = async (city:string) => {
         try {
@@ -15,11 +15,11 @@ const Data = () => {
 
             console.log(data)
 
-            if (data.name && data.main && data.main.temp !== undefined && data.main.pressure !== undefined) {
+            if (data) {
                 setWeatherInfo({
-                    city: data.name,
-                    temp: data.main.temp,
-                    pressure: data.main.pressure
+                        city: data.name,
+                        temp: data.main.temp,
+                        pressure: data.main.pressure
                 });
             } else {
                 console.error('Не удалось получить все необходимые данные о погоде');
@@ -33,7 +33,7 @@ const Data = () => {
     return (
         <div>
             <Form getWeather={getWeather}/>
-            <Weather weatherInfo={weatherInfo} />
+            <Weather weatherInfo={weatherInfo}/>
         </div>
     );
 };
