@@ -1,14 +1,12 @@
-export interface WeatherInfoProps {
-        city: string,
-        temp: number,
-        pressure: number
+export interface WeatherInfo {
+        city: string;
+        temp: number;
+        pressure: number;
 }
-export type WeatherInfo = WeatherInfoProps | null;
 
-
-
-
-
+export interface WeatherInfoProps {
+    weatherInfo: WeatherInfo | null,
+}
 
 
 export interface WeatherFormProps {

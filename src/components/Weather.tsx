@@ -1,8 +1,8 @@
 
-import {WeatherInfo, WeatherInfoProps} from "../types/interfaces.ts";
+import {WeatherInfoProps} from "../types/interfaces.ts";
 import {FC} from "react";
 
-const Weather:FC<WeatherInfoProps> = ({weatherInfo}:WeatherInfo) => {
+const Weather:FC<WeatherInfoProps> = ({weatherInfo}:WeatherInfoProps) => {
     if (!weatherInfo) {
         return <div>Загрузка данных о погоде...</div>;
     }

@@ -6,13 +6,11 @@ import {WeatherInfo} from "../types/interfaces.ts";
 
 
 const Data = () => {
-    const [weatherInfo, setWeatherInfo]= useState<WeatherInfo | null >(null);
-
+    const [weatherInfo, setWeatherInfo] = useState<WeatherInfo | null>(null);
     const getWeather = async (city:string) => {
         try {
             const response = await fetch(`${base_url}?q=${city}&appid=${api_key}`);
             const data = await response.json()
-
             console.log(data)
 
             if (data) {
@@ -28,7 +26,6 @@ const Data = () => {
             console.error(e.message);
         }
     }
-
 
     return (
         <div>
