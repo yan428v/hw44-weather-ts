@@ -4,6 +4,8 @@ import Data from "./components/Data.tsx";
 
 function App() {
     return (
+
+
         <div className={'wrapper'}>
             <div className={'main'}>
                 <div className={'container'}>
